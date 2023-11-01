@@ -1,0 +1,10 @@
+.simpson {
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid silver;
+}
+
+.simpson img {
+    width: 20%;
+}
