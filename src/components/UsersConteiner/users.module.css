@@ -1,0 +1,11 @@
+.Users {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.UserDetails {
+    position: fixed;
+    right: 10%;
+    top: 5vh;
+    width: 40%;
+}
