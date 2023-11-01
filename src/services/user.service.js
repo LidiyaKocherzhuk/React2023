@@ -1,9 +1,9 @@
-import {axiosService} from "./axios.service";
+import {axiosServicePlaceholder} from "./axios.service";
 import {urls} from "../constants/urls";
 
 const userService = {
-  getAll: () => axiosService.get(urls.users.base).then(),
-  getById: (id) => axiosService.get(urls.users.byId(id)).then(),
+  getAll: () => axiosServicePlaceholder.get(urls.users.base).then(),
+  getById: (id) => axiosServicePlaceholder.get(urls.users.byId(id)).then(),
 };
 
 export {userService};

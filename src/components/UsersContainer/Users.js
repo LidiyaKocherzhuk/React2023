@@ -11,19 +11,27 @@ import {userService} from "../../services/user.service";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  const [userDetails, setUserDetails] = useState([]);
+  const [userDetails, setUserDetails] = useState(null);
   
-  useEffect(()=>{
+  useEffect(() => {
     userService.getAll().then(res => setUsers(res.data));
   }, []);
   const click = (id) => {
-    userService.getById(id).then(res => setUserDetails(res.data));
+    if (userDetails && userDetails.id === id) {
+      setUserDetails(null);
+    } else {
+      userService.getById(id).then(res => setUserDetails(res.data));
+    }
   };
-  console.log(userDetails);
+  
   return (
-      <div className={css.Users}>
-        <div>{users.map(user => <User key={user.id} user={user} click={click}/>)}</div>
-        <UserDetails userDetails={userDetails}/>
+      <div>
+        <h1>Placeholder Api</h1>
+        
+        <div className={css.Users}>
+          <div>{users.map(user => <User key={user.id} user={user} click={click}/>)}</div>
+          {userDetails && <UserDetails userDetails={userDetails}/>}
+        </div>
       </div>
   );
 };

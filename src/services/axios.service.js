@@ -1,7 +1,8 @@
 import axios from "axios";
 
-import {baseURL} from "../constants/urls";
+import {placeholderURL, spaceXURL} from "../constants/urls";
 
-const axiosService = axios.create({baseURL});
+const axiosServicePlaceholder = axios.create({baseURL: placeholderURL});
+const axiosServiceSpaceX = axios.create({baseURL: spaceXURL});
 
-export {axiosService};
+export {axiosServicePlaceholder, axiosServiceSpaceX};
