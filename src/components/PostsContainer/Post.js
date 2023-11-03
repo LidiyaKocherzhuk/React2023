@@ -1,18 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
+import React from 'react';
 
 import css from '../moduleCSS/Content.module.css';
-import {postService} from "../../services/post.service";
 
-const Post = () => {
-  const {postId} = useParams();
-  const [post, setPost] = useState({});
+const Post = ({post}) => {
   const {userId, id, title, body} = post;
-  
-  useEffect(() => {
-    postService.getById(postId).then(({data}) => setPost(data));
-  }, []);
-  
+
   return (
       <div className={css.content}>
         <h3>Post</h3>

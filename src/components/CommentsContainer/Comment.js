@@ -9,9 +9,10 @@ const Comment = ({comment}) => {
   
   const navigate = useNavigate();
   
-  const click = () => {
+  function click() {
     
     if (clickId === id) {
+      navigate('');
       setClickId(0);
     } else {
       navigate(`post/${postId}`);

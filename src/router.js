@@ -15,7 +15,8 @@ import {MainLayout} from "./layouts/MainLayout";
 import {CommentsPage} from "./pages/CommentsPage";
 import {AlbumsPage} from "./pages/AlbumsPage";
 import {TodosPage} from "./pages/TodosPage";
-import {Post} from "./components/PostsContainer/Post";
+import {postService} from "./services/post.service";
+import {PostsPage} from "./pages/PostsPage";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,10 @@ const router = createBrowserRouter([
       {path: 'todos', element: <TodosPage/>},
       {path: 'albums', element: <AlbumsPage/>},
       {path: 'comments', element: <CommentsPage/>, children: [
-          {path: 'post/:postId', element: <Post/>}
+          {
+            path: 'post/:postId', element: <PostsPage/>,
+            loader: ({params: {postId}}) => postService.getById(postId),
+          }
         ]},
     ]
   }
