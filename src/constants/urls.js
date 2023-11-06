@@ -12,7 +12,8 @@ const urls = {
   },
   cars: {
     base: cars,
-    byId: (id) => `${cars}/${id}`
+    byId: (id) => `${cars}/${id}`,
+    photoById: (id) => `${cars}/${id}/photo`,
   },
 };
 

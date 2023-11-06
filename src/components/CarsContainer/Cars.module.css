@@ -1,0 +1,7 @@
+.CarsForm {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    align-items: start;
+}

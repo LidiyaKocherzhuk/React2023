@@ -10,7 +10,13 @@ const useAppContext = () => {
     me: state.me,
     setIsAuth: (value) => setState(prev => ({...prev, isAuth: value})),
     setMe: (value) => setState(prev => ({...prev, me: value})),
-  };
- };
+    trigger: state.trigger,
+    updateCar: state.updateCar,
+    setTrigger: (value) => setState(prev => ({...prev, trigger: value})),
+    setUpdateCar: (value) => setState(prev => ({...prev, updateCar: value})),
+  }
+}
 
-export {useAppContext};
+export {
+  useAppContext
+}

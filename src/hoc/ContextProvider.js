@@ -2,7 +2,7 @@ import {createContext, useState} from "react";
 
 const Context = createContext(null);
 const ContextProvider = ({children}) => {
-  const [state, setState] = useState({isAuth: null, me: null});
+  const state = useState({isAuth: null, me: null, trigger: null, updateCar: null});
   
   return (
       

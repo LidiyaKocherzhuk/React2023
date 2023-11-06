@@ -11,7 +11,6 @@ const authService = {
   async login(loginData) {
     const {data} = await axiosService.post(urls.auth.login, loginData).then();
     const {access} = data;
-    console.log(data);
     
     if (access) {
       this.setToken(data.access);
@@ -20,8 +19,16 @@ const authService = {
     return data;
   },
   
+  getMe() {
+    return axiosService.get(urls.auth.me).then();
+  },
+  
   setToken(token) {
     localStorage.setItem('accessToken', token);
+  },
+  
+  getToken() {
+    return localStorage.getItem('accessToken');
   },
   
   deleteToken(token) {

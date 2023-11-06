@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import {useForm} from "react-hook-form";
+import {useNavigate} from "react-router-dom";
 
 import css from './Auth.module.css';
 import {authService} from "../../services";
+import {Context} from "../../hoc";
 import {useAppContext} from "../../hooks";
 
 const LoginForm = () => {
@@ -13,18 +15,26 @@ const LoginForm = () => {
     reset
   } = useForm();
   
-  const {setMe, setIsAuth} = useAppContext();
   const [serverError, setServerError] = useState(null);
+  const {setIsAuth, setMe} = useAppContext(Context);
+  const navigate = useNavigate();
   
   const send = async (loginData) => {
+    
     try {
-      const authData = await authService.login(loginData);
-      setMe(authData);
+      await authService.login(loginData);
+      const {data} = await authService.getMe();
+      
       setIsAuth(true);
+      setMe(data);
       setServerError(null);
+      
+      navigate('/cars');
+      reset();
     } catch (error) {
       setServerError(`${error.message}, No active account found with the given credentials!`);
     }
+    
   };
   
   
