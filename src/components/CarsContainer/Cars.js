@@ -8,11 +8,11 @@ import {Car} from "./Car";
 const Cars = () => {
   
   const dispatch = useDispatch();
-  const {cars} = useSelector(state => state.carReducer);
+  const {cars, trigger} = useSelector(state => state.carReducer);
   
   useEffect(() => {
     carService.getAll().then(({data}) => dispatch(carActions.setResponse(data)));
-  }, []);
+  }, [trigger]);
   
   return (
       <div>
